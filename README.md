@@ -1,5 +1,7 @@
+# JAGAN JP
+# 212224230099
 # EX01 Developing a Simple Webserver
-## Date:
+## Date:30-08-2025
 
 ## AIM:
 To develop a simple webserver to serve html pages and display the list of protocols in TCP/IP Protocol Suite.
@@ -36,10 +38,49 @@ Start the server script and check for errors.
 Open a browser and navigate to http://127.0.0.1:8000 (or the assigned port).
 
 ## PROGRAM:
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
+htmlcontent = '''
+<!doctype html>
+<html>
+<head>
+    <title>sample</title>
+</head>
+      <center><font color="black" face="arial" size="70">
+        <br>List Of Protocols In TCP/IP Model</br>
+   </font></center>
+   <center><font color="cyan" face="atlas" size="05">
+   <br>Application Layer - HTTP, FTP, DNS, TELNET & SSH<br>
+   <center><font color="cyan" face="atlas" size="05">
+   <br>Transport Layer - TCP & UDP<br>
+   <center><font color="cyan" face="slider" size="05">
+   <br>Network Layer - IPV4/IPV6<br>
+   <center><font color="cyan" face="slider" size="05">
+   <br>Link Layer - Ethernet<br>
+   </font>
+<body>
+<h1></h1>
+</body>
+</html>
+'''
+
+class ServerResponse(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("Get request received...")
+        self.send_response(200) 
+        self.send_header("content-type", "text/html")       
+        self.end_headers()
+        self.wfile.write(htmlcontent.encode())
+
+print("This is my webserver") 
+server_address =('',5000)
+httpd = HTTPServer(server_address,ServerResponse)
+httpd.serve_forever()
 
 ## OUTPUT:
+<img width="1911" height="748" alt="Screenshot 2025-08-30 132118" src="https://github.com/user-attachments/assets/1ec51357-ceda-49a8-b649-e70edb2c6f0d" />
 
+<img width="1512" height="645" alt="Screenshot 2025-08-30 131850" src="https://github.com/user-attachments/assets/198e0b1a-6681-46f0-a552-de3f375bb6d8" />
 
 ## RESULT:
 The program for implementing simple webserver is executed successfully.
