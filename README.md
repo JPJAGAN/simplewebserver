@@ -39,9 +39,13 @@ Open a browser and navigate to http://127.0.0.1:8000 (or the assigned port).
 
 ## PROGRAM:
 from http.server import HTTPServer, BaseHTTPRequestHandler
+
 htmlcontent = '''
+
 <!doctype html>
+
 <html>
+    
 <head>
     
     <title>sample</title>
@@ -51,6 +55,7 @@ htmlcontent = '''
        <center><font color="black" face="arial" size="70">
           
         <br>List Of Protocols In TCP/IP Model</br>
+        
    </font></center>
    
    <center><font color="cyan" face="atlas" size="05">
@@ -84,6 +89,7 @@ htmlcontent = '''
 class ServerResponse(BaseHTTPRequestHandler):
 
     def do_GET(self):
+    
         print("Get request received...")
         
         self.send_response(200) 
