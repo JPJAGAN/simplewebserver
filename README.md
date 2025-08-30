@@ -47,15 +47,24 @@ htmlcontent = '''
     <title>sample</title>
 </head>
       <center><font color="black" face="arial" size="70">
+          
         <br>List Of Protocols In TCP/IP Model</br>
    </font></center>
+   
    <center><font color="cyan" face="atlas" size="05">
+       
    <br>Application Layer - HTTP, FTP, DNS, TELNET & SSH<br>
+   
    <center><font color="cyan" face="atlas" size="05">
+       
    <br>Transport Layer - TCP & UDP<br>
+   
    <center><font color="cyan" face="slider" size="05">
+       
    <br>Network Layer - IPV4/IPV6<br>
+   
    <center><font color="cyan" face="slider" size="05">
+       
    <br>Link Layer - Ethernet<br>
    </font>
 <body>
@@ -65,11 +74,16 @@ htmlcontent = '''
 '''
 
 class ServerResponse(BaseHTTPRequestHandler):
+
     def do_GET(self):
         print("Get request received...")
+        
         self.send_response(200) 
-        self.send_header("content-type", "text/html")       
+        
+        self.send_header("content-type", "text/html")  
+        
         self.end_headers()
+        
         self.wfile.write(htmlcontent.encode())
 
 print("This is my webserver") 
